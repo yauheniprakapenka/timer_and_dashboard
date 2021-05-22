@@ -1,6 +1,6 @@
 import 'package:dashboard/constatnts.dart';
-import 'package:dashboard/screens/dashboard/widgets/chart.dart';
 import 'package:dashboard/screens/dashboard/widgets/header.dart';
+import 'package:dashboard/screens/dashboard/widgets/storage_detail.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatelessWidget {
@@ -15,6 +15,7 @@ class Dashboard extends StatelessWidget {
           ),
           SizedBox(height: defaultPadding),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
                 flex: 5,
@@ -28,28 +29,13 @@ class Dashboard extends StatelessWidget {
                 flex: 2,
                 child: Container(
                   padding: EdgeInsets.all(defaultPadding),
-                  height: 500,
                   decoration: BoxDecoration(
                     color: secondaryColor,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10),
-                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
-                  child: Column(
-                    children: [
-                      Text(
-                        'Storage details',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      SizedBox(height: defaultPadding),
-                      Chart(),
-                    ],
-                  ),
+                  child: StorageDetail(),
                 ),
-              )
+              ),
             ],
           )
         ],

@@ -11,7 +11,7 @@ class Chart extends StatelessWidget {
           child: PieChart(
             PieChartData(
               sections: pieChartSectionDatas,
-              startDegreeOffset: 90,
+              startDegreeOffset: 270,
             ),
           ),
         ),
@@ -26,7 +26,7 @@ class Chart extends StatelessWidget {
                   fontSize: 24,
                 ),
               ),
-              Text('of Gb'),
+              Text('of 128 Gb'),
             ],
           ),
         )
@@ -37,15 +37,21 @@ class Chart extends StatelessWidget {
 
 List<PieChartSectionData> pieChartSectionDatas = [
   PieChartSectionData(
-    value: 50,
+    color: Colors.grey[600],
+    showTitle: false,
+    value: 25,
+  ),
+  PieChartSectionData(
     color: Colors.blue[600],
+    showTitle: false,
+    value: 50,
   ),
   PieChartSectionData(
-    value: 20,
     color: Colors.orange[600],
+    showTitle: false,
   ),
   PieChartSectionData(
-    value: 30,
     color: Colors.deepPurple[600],
+    showTitle: false,
   ),
 ];

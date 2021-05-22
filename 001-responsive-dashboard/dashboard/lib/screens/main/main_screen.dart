@@ -1,3 +1,4 @@
+import 'package:dashboard/constatnts.dart';
 import 'package:dashboard/screens/dashboard/dashboard.dart';
 import 'package:dashboard/screens/main/components/side_menu.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,10 @@ class MyHomePage extends StatelessWidget {
             ),
             Expanded(
               flex: 5,
-              child: Dashboard(),
+              child: Padding(
+                padding: EdgeInsets.all(defaultPadding),
+                child: Dashboard(),
+              ),
             ),
           ],
         ),

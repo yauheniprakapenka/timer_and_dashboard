@@ -9,7 +9,17 @@ class SideMenu extends StatelessWidget {
         child: Column(
           children: [
             DrawerHeader(
-              child: Image.asset('assets/images/logo.png'),
+              child: Column(
+                children: [
+                  Image.asset('assets/images/logo.png'),
+                  Text(
+                    'Лукошко Inc.',
+                    style: TextStyle(
+                      color: Colors.white70,
+                    ),
+                  )
+                ],
+              ),
             ),
             DrawerListTile(
               title: 'Dashboard',

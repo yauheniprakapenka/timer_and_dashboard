@@ -1,4 +1,5 @@
 import 'package:dashboard/constatnts.dart';
+import 'package:dashboard/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -7,6 +8,13 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
+        if (!Responsive.isDesktop(context))
+          IconButton(
+            icon: Icon(
+              Icons.menu,
+            ),
+            onPressed: () {},
+          ),
         Text(
           'Dashboard',
           style: Theme.of(context).textTheme.headline6,

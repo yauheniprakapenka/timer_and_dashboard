@@ -1,5 +1,6 @@
 import 'package:dashboard/constatnts.dart';
 import 'package:dashboard/models/RecentFile.dart';
+import 'package:dashboard/responsive.dart';
 import 'package:dashboard/screens/dashboard/widgets/header.dart';
 import 'package:dashboard/screens/dashboard/widgets/my_files/my_files.dart';
 import 'package:dashboard/screens/dashboard/widgets/storage_detail.dart';
@@ -55,7 +56,10 @@ class Dashboard extends StatelessWidget {
                                   },
                                 ),
                               ),
-                            )
+                            ),
+                            if (Responsive.isMobile(context))
+                              SizedBox(width: defaultPadding),
+                            if (Responsive.isMobile(context)) StorageDetail()
                           ],
                         ),
                       )
@@ -63,18 +67,20 @@ class Dashboard extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(width: defaultPadding),
-              Expanded(
-                flex: 2,
-                child: Container(
-                  padding: EdgeInsets.all(defaultPadding),
-                  decoration: BoxDecoration(
-                    color: secondaryColor,
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
+              if (!Responsive.isMobile(context))
+                SizedBox(width: defaultPadding),
+              if (!Responsive.isMobile(context))
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    padding: EdgeInsets.all(defaultPadding),
+                    decoration: BoxDecoration(
+                      color: secondaryColor,
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                    child: StorageDetail(),
                   ),
-                  child: StorageDetail(),
                 ),
-              ),
             ],
           )
         ],

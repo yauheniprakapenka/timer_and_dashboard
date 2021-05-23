@@ -1,4 +1,5 @@
 import 'package:dashboard/constatnts.dart';
+import 'package:dashboard/responsive.dart';
 import 'package:dashboard/screens/dashboard/dashboard.dart';
 import 'package:dashboard/screens/main/components/side_menu.dart';
 import 'package:flutter/material.dart';
@@ -11,14 +12,12 @@ class MyHomePage extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-              child: SideMenu(),
-            ),
+            if (Responsive.isDesktop(context)) Expanded(child: SideMenu()),
             Expanded(
               flex: 5,
               child: Padding(
                 padding: EdgeInsets.all(defaultPadding),
-                child: Dashboard()
+                child: Dashboard(),
               ),
             ),
           ],

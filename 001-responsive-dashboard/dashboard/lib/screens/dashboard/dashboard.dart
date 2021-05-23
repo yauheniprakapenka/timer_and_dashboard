@@ -1,8 +1,10 @@
 import 'package:dashboard/constatnts.dart';
+import 'package:dashboard/models/RecentFile.dart';
 import 'package:dashboard/screens/dashboard/widgets/header.dart';
 import 'package:dashboard/screens/dashboard/widgets/my_files/my_files.dart';
 import 'package:dashboard/screens/dashboard/widgets/storage_detail.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class Dashboard extends StatelessWidget {
   @override
@@ -21,8 +23,44 @@ class Dashboard extends StatelessWidget {
               Expanded(
                 flex: 5,
                 child: Container(
-                  height: 500,
-                  child: MyFiles(),
+                  child: Column(
+                    children: [
+                      MyFiles(),
+                      SizedBox(height: defaultPadding),
+                      Container(
+                        padding: EdgeInsets.all(defaultPadding),
+                        decoration: BoxDecoration(
+                          color: secondaryColor,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
+                          ),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Recent files'),
+                            SizedBox(
+                              width: double.infinity,
+                              child: DataTable(
+                                horizontalMargin: 0,
+                                columns: [
+                                  DataColumn(label: Text('File name')),
+                                  DataColumn(label: Text('Date')),
+                                  DataColumn(label: Text('Size')),
+                                ],
+                                rows: List.generate(
+                                  demoRecentFiles.length,
+                                  (int index) {
+                                    return _buildRecentFile(index);
+                                  },
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
               SizedBox(width: defaultPadding),
@@ -41,6 +79,24 @@ class Dashboard extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+
+  DataRow _buildRecentFile(int index) {
+    return DataRow(
+      cells: [
+        DataCell(
+          Row(
+            children: [
+              SvgPicture.asset(demoRecentFiles[index].icon),
+              SizedBox(width: defaultPadding / 2),
+              Text(demoRecentFiles[index].title)
+            ],
+          ),
+        ),
+        DataCell(Text(demoRecentFiles[index].date)),
+        DataCell(Text(demoRecentFiles[index].size)),
+      ],
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:dashboard/constatnts.dart';
 import 'package:dashboard/screens/dashboard/widgets/header.dart';
+import 'package:dashboard/screens/dashboard/widgets/my_files/my_files.dart';
 import 'package:dashboard/screens/dashboard/widgets/storage_detail.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,7 @@ class Dashboard extends StatelessWidget {
                 flex: 5,
                 child: Container(
                   height: 500,
-                  color: secondaryColor,
+                  child: MyFiles(),
                 ),
               ),
               SizedBox(width: defaultPadding),

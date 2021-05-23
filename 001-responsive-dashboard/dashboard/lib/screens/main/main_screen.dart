@@ -18,7 +18,7 @@ class MyHomePage extends StatelessWidget {
               flex: 5,
               child: Padding(
                 padding: EdgeInsets.all(defaultPadding),
-                child: Dashboard(),
+                child: Dashboard()
               ),
             ),
           ],

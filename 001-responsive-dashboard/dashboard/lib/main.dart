@@ -1,5 +1,5 @@
-import 'package:dashboard/constatnts.dart';
-import 'package:dashboard/screens/main/main_screen.dart';
+import 'package:dashboard/ui/pages/main/home.dart';
+import 'package:dashboard/ui/shared/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,15 +13,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: bgColor,
+        scaffoldBackgroundColor: AppColors.background,
         textTheme: GoogleFonts.poppinsTextTheme(
           Theme.of(context).textTheme.apply(
                 bodyColor: Colors.white,
               ),
         ),
-        canvasColor: secondaryColor,
+        canvasColor: AppColors.foreground,
       ),
-      home: MyHomePage(),
+      home: HomePage(),
     );
   }
 }
